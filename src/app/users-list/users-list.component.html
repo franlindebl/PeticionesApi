@@ -1,0 +1,19 @@
+<h2>Listado de usuarios:</h2>
+
+<button (click)="addOneToUserList()">Añadir un usuario</button>
+<p>Num users: {{ currentUserNumber }}</p>
+
+<table *ngIf="users">
+  <thead>
+    <th *ngFor="let userData of users[0] | keyvalue">{{ userData.key }}</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td *ngFor="let userData of user | keyvalue">
+        {{ userData.value | json }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-user-detail></app-user-detail>
